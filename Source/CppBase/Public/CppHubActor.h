@@ -2,20 +2,15 @@
 
 #pragma once
 
-
-
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "CppHubActor.generated.h"
 
-
 class ACppBaseActor1;
-
 UCLASS()
 class CPPBASE_API ACppHubActor : public AActor
 {
 	GENERATED_BODY()
-
 public:
 	// Sets default values for this actor's properties
 	ACppHubActor();
@@ -41,7 +36,7 @@ public:
 	FTimerHandle DestroyTimerHandle;
 
 	const int32 TotalCount = 10;
-	int32 CurrentTimerCount = 0;
+	int32		CurrentTimerCount = 0;
 
 	void OnTimeToSpawn();
 	void OnTimeToDestroy();

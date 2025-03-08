@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Kismet/GameplayStatics.h"
+#include "Math/UnrealMathUtility.h"
 #include "CppBaseActor1.generated.h"
 
 class UStaticMeshComponent;
@@ -42,7 +44,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-
 	UPROPERTY(EditAnywhere)
 	int EnemyNum;
 
@@ -52,12 +53,23 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void ShowInformation();
 
+	UFUNCTION(BlueprintCallable)
+	void SinMovement();
 
-public:
+	UPROPERTY(EditAnywhere)
+	float Amplitude{ 70.0 };
+
+	UPROPERTY(EditAnywhere)
+	float Frequency{ 4.0 };
+
+	UPROPERTY(EditAnywhere)
+	FVector InitialLocation;
+
+	public :
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	virtual void
+	Tick(float DeltaTime) override;
 
 	UPROPERTY(VisibleAnywhere)
 	UStaticMeshComponent* Mesh;
-
 };
